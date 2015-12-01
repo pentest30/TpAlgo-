@@ -5,16 +5,17 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using ClosedXML.Excel;
+using Numerics;
 namespace ConsoleApplication5
 {
     public class ALgoAvc
     {
         //une classe pour enregistré les resultas de chaque fonction par rapport les valeurs données.
         public string TypeFunction { get; set; }
-        public double Value { get; set; }
+        public BigRational Value { get; set; }
         public decimal TimeSpan1 { get; set; }
-
-        public double Result { get; set; }
+       
+        public BigRational Result { get; set; }
 
 
     }
@@ -24,7 +25,7 @@ namespace ConsoleApplication5
         static void Main()
         {
             //un tavleau avec les valuer a testé
-            double[] ar = {10, 20, 50,70, 100, 150, 200, 500, 700,1000};
+            BigRational[] ar = {10, 20, 50,70, 100, 150, 200, 500, 700,1000};
           //cette liste est pour enregistré les resultat aprés chaque execution de cgaque fonction
             var list = new List<ALgoAvc>();
           //Itération sur la table des valeurs avec l'execution des 3 fonctions .
@@ -47,7 +48,7 @@ namespace ConsoleApplication5
 
         }
         //cette fonction execute la fonction Recursive et calcul le temps d'execution en Nano seconde.
-        static ALgoAvc EvaluateFactRec(double value)
+        static ALgoAvc EvaluateFactRec(BigRational value)
         {
             var  item = new ALgoAvc();
             Stopwatch.Start();
@@ -59,7 +60,7 @@ namespace ConsoleApplication5
             return item;
         }
         //cette fonction execute la fonction Itérative et calcul le temps d'execution.
-        static ALgoAvc EvaluateFactEtir(double value)
+        static ALgoAvc EvaluateFactEtir(BigRational value)
         {
             var item = new ALgoAvc();
             Stopwatch.Start();
@@ -71,7 +72,7 @@ namespace ConsoleApplication5
             return item;
         }
         //cette fonction execute la fonction Recursive terminale et calcul le temps d'execution.
-        static ALgoAvc EvaluateFactRecTerminale(double value)
+        static ALgoAvc EvaluateFactRecTerminale(BigRational value)
         {
             var item = new ALgoAvc();
             Stopwatch.Start();
@@ -83,16 +84,16 @@ namespace ConsoleApplication5
             return item;
         }
 
-        static double FactRecur(double n)
+        static BigRational FactRecur(BigRational n)
         {
             if (n == 0) return 1;
             return n*FactRecur(n - 1);
         }
 
-        static double FactEtitaif(double n)
+        static BigRational FactEtitaif(BigRational n)
         {
-            double a = n-1;
-            double r = n;
+            BigRational a = n-1;
+            BigRational r = n;
             while (a>0)
             {
                 r = r*a;
@@ -102,7 +103,7 @@ namespace ConsoleApplication5
             return r;
         }
 
-        static double FactRcTer(double n , double a  )
+        static BigRational FactRcTer(BigRational n , BigRational a  )
         {
             if (n == 0) return a*1;
             return FactRcTer(n - 1, a*n);
