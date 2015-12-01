@@ -11,7 +11,7 @@ namespace ConsoleApplication5
     {
         //une classe pour enregistré les resultas de chaque fonction par rapport les valeurs données.
         public string TypeFunction { get; set; }
-        public int Value { get; set; }
+        public double Value { get; set; }
         public decimal TimeSpan1 { get; set; }
 
         public double Result { get; set; }
@@ -24,7 +24,7 @@ namespace ConsoleApplication5
         static void Main()
         {
             //un tavleau avec les valuer a testé
-            int[] ar = {10, 20, 50,70, 100, 150, 200, 500, 700,1000};
+            double[] ar = {10, 20, 50,70, 100, 150, 200, 500, 700,1000};
           //cette liste est pour enregistré les resultat aprés chaque execution de cgaque fonction
             var list = new List<ALgoAvc>();
           //Itération sur la table des valeurs avec l'execution des 3 fonctions .
@@ -47,7 +47,7 @@ namespace ConsoleApplication5
 
         }
         //cette fonction execute la fonction Recursive et calcul le temps d'execution en Nano seconde.
-        static ALgoAvc EvaluateFactRec(int value)
+        static ALgoAvc EvaluateFactRec(double value)
         {
             var  item = new ALgoAvc();
             Stopwatch.Start();
@@ -59,7 +59,7 @@ namespace ConsoleApplication5
             return item;
         }
         //cette fonction execute la fonction Itérative et calcul le temps d'execution.
-        static ALgoAvc EvaluateFactEtir(int value)
+        static ALgoAvc EvaluateFactEtir(double value)
         {
             var item = new ALgoAvc();
             Stopwatch.Start();
@@ -71,7 +71,7 @@ namespace ConsoleApplication5
             return item;
         }
         //cette fonction execute la fonction Recursive terminale et calcul le temps d'execution.
-        static ALgoAvc EvaluateFactRecTerminale(int value)
+        static ALgoAvc EvaluateFactRecTerminale(double value)
         {
             var item = new ALgoAvc();
             Stopwatch.Start();
