@@ -24,7 +24,7 @@ namespace ConsoleApplication5
         readonly static Stopwatch Stopwatch = new Stopwatch();
         static void Main()
         {
-            //un tavleau avec les valuer a testé
+            //une table avec les valeurs a testé
             BigRational[] ar = {10, 20, 50,70, 100, 150, 200, 500, 700,1000};
           //cette liste est pour enregistré les resultat aprés chaque execution de cgaque fonction
             var list = new List<ALgoAvc>();
@@ -43,7 +43,7 @@ namespace ConsoleApplication5
             wb.Worksheets.Add(t);
             wb.SaveAs("resultat.xlsx");
             Console.WriteLine("Les résultats sont enregistrés sous le repertoire suivant: " +Environment.NewLine + Environment.CurrentDirectory + @"\resultat.xlsx");
-            Console.WriteLine("pour quitter tapez  n'importe quelle touche." );
+            Console.WriteLine("pour quitter tappez  n'importe quelle touche." );
             Console.ReadLine();
 
         }
